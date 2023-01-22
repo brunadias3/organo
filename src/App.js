@@ -33,12 +33,12 @@ function App() {
     {
       nome: 'UX e Design',
       corPrimaria: '#D86EBF',
-      corSecundaria: '#FAE95F5',
+      corSecundaria: '#FAE9F5',
     },
 
     {
       nome: 'Mobile',
-      corPrimaria: '#FEBA05',
+      corPrimaria: '#FFBA05',
       corSecundaria: '#FFF5D9'
     },
 
@@ -60,7 +60,14 @@ function App() {
     <div className="App">
       <Banner />
       <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
-      {times.map(times => <Times nome={times.nome} key={times.nome} corPrimaria={times.corPrimaria} corSecundaria={times.corSecundaria} /> )}
+      {times.map(times => <Times 
+      nome={times.nome} 
+      key={times.nome} 
+      corPrimaria={times.corPrimaria} 
+      corSecundaria={times.corSecundaria}
+      colaboradores= {colaboradores.filter(colaborador => colaborador.time === times.nome)}
+      /> )}
+
     </div>
   );
 }
